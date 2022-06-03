@@ -38,5 +38,24 @@ public class HTTPRequest {
         return jsonObject;
 
     }
+    public String requestGetMethodImg(String stringUrl){
+
+        String img = null;
+        URL url;
+
+        try {
+            
+            url = new URL(stringUrl);
+            HttpURLConnection connection = (HttpURLConnection)url.openConnection(); 
+            connection.connect();
+
+            img = IOUtils.toString(connection.getInputStream(), "utf-8");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return img;
+    }
     
 }

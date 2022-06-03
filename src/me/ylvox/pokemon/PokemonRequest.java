@@ -5,10 +5,16 @@ import org.json.JSONObject;
 import me.ylvox.network.HTTPRequest;
 
 public class PokemonRequest {
+
+    GetPokemon getpokeImg = new GetPokemon();
+    public static String pokeImgUrl;
+    private String pokeAscii;
     
     public void getPokeJson() throws Exception{
 
         JSONObject object = new HTTPRequest().requestGetMethod(GetPokemon.pokemonUrl);
+        pokeImgUrl = object.getJSONObject("sprites").getJSONObject("other").getJSONObject("official-artwork").getString("front_default");
+        getpokeImg.getPokeImgUrl();
 
         //Montando estrutura de informacoes do pokemon
         String pokeName = object.getString("name");
@@ -60,7 +66,14 @@ public class PokemonRequest {
             System.out.println(i+1 + ": " + typeName);
 
         }
+        System.out.println("------------IMAGEM------------");
+
+        pokeAscii = new HTTPRequest().requestGetMethodImg(getpokeImg.pokemonImgUrl).replaceAll("<br>", "\n").replaceAll("\\<.*?>", "");
+        System.out.println(pokeAscii);
+
         System.out.println("-----------------------------------");
+
+        // https://process.filestackapi.com/AP2z0mphR56Dq0yTmJPIDz/ascii=size:80,reverse:true/URL-IMAGE
     }
 
 }
