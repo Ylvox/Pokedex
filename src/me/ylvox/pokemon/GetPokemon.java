@@ -24,7 +24,7 @@ public class GetPokemon {
     }
     public void getPokeImgUrl(){
 
-        pokemonImgUrl = "https://process.filestackapi.com/AP2z0mphR56Dq0yTmJPIDz/ascii=size:60,reverse:true/" + PokemonRequest.pokeImgUrl;
+        pokemonImgUrl = "https://process.filestackapi.com/AP2z0mphR56Dq0yTmJPIDz/ascii=size:100,reverse:true/" + PokemonRequest.pokeImgUrl;
 
     } 
 
